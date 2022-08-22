@@ -4,6 +4,10 @@
 
 _Install the following:_
 
+-Web API
+```
+Install-Package Microsoft.EntityFrameworkCore.Design
+```
 -Web API, Core
 ```
 Install-Package MediatR
