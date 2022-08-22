@@ -1,16 +1,20 @@
 ﻿
 using App.Domain.Entities;
 using Mapster;
-using System.ComponentModel.DataAnnotations;
+/*
+ https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-6.0
+ Install Microsoft.AspNetCore.Mvc.Core to use [ValidateNever]
+ */
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation; 
 
 namespace App.Core.CustomerService.TransportModels
 {
     public class CustomerTransport : IRegister
     {
         public int? Id { get; set; }
-
+        [ValidateNever]
         public string FirstName { get; set; }
-
+        [ValidateNever]
         public string LastName { get; set; }
 
         public DateTime? Birthday { get; set; }

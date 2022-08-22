@@ -20,15 +20,7 @@ namespace App.API.Controllers
         public async Task<IActionResult> AddCustomer([FromForm] AddCustomerCommand command)
         {
             var response = await _mediator.Send(command);
-
-            if (!response.IsSuccess)
-            {
-                return new ObjectResult(response.ErrorMessages)
-                {
-                    StatusCode = (int)HttpStatusCode.UnprocessableEntity
-                };
-            }
-
+           
             return Ok(response);
         }
     }
