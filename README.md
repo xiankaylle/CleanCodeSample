@@ -13,6 +13,9 @@ Install-Package MediatR
 Install-Package MediatR.Extensions.Microsoft.DependencyInjection
 ```
 ```
+Install-Package Scrutor
+```
+```
 Install-Package Mapster -Version 7.3.0
 ```
 -Migration using Package Manager Console 
