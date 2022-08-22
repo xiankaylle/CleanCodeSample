@@ -4,11 +4,11 @@
 
 _Install the following:_
 
-(Web API, Core)
+-Web API, Core
 ```
 Install-Package MediatR
 ```
-(Core)
+-Core
 ```
 Install-Package MediatR.Extensions.Microsoft.DependencyInjection
 ```
