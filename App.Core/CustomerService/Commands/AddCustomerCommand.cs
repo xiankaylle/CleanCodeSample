@@ -16,47 +16,7 @@ namespace App.Core.CustomerService.Commands
 
     }
 
-    public class AddCustomerCommandValidator : IValidationHandler<AddCustomerCommand>
-    {
-        private readonly IAppDbContext _context;
-
-        public AddCustomerCommandValidator(IAppDbContext context)
-        {
-            _context = context;
-        }
-
-        public async Task<ValidationResult> Validate(AddCustomerCommand request)
-        {
-            if (await _context.Customer.AnyAsync(x => x.Email == request.CustomerTransport.Email)) { 
-                return new ValidationResult(ResponseStatusCode.EntityNotFound, $"Email already exist!");
-            }
-
-            if (request.CustomerTransport == null) {             
-                return new ValidationResult(ResponseStatusCode.InvalidRequest, $"{nameof(request.CustomerTransport)} can't be null");
-            }
-
-            if (string.IsNullOrEmpty(request.CustomerTransport.FirstName))
-            {
-                return new ValidationResult(ResponseStatusCode.InvalidRequest, $"First Name is required!");
-            }
-
-            if (!request.CustomerTransport.FirstName.IsStringLengthValid()) { 
-                return new ValidationResult(ResponseStatusCode.InvalidRequest, $"First Name must have at least 2 characters!");
-            }
-
-            if (string.IsNullOrEmpty(request.CustomerTransport.LastName))
-            {
-                return new ValidationResult(ResponseStatusCode.InvalidRequest, $"Last Name is required!");
-            }
-
-            if (!request.CustomerTransport.LastName.IsStringLengthValid()) { 
-                return new ValidationResult(ResponseStatusCode.InvalidRequest, $"Last Name must have at least 2 characters!");
-            }         
-
-            return Task.FromResult<ValidationResult>(null).Result;
-        }
-    }
-
+    
     public class AddCustomerCommandHandler : IRequestHandler<AddCustomerCommand, ServiceResponse<bool>>
     {
 
