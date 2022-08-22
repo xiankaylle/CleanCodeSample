@@ -13,7 +13,7 @@ namespace App.Infrastructure
             services.AddDbContext<AppDbContext>(options =>
                        options.UseSqlServer(
                            configuration.GetConnectionString("DefaultConnection"),
-                           b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
+                           b => b.MigrationsAssembly(typeof(AssemblyReference).Assembly.FullName)));
 
             services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
 

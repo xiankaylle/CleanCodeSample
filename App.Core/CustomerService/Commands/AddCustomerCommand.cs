@@ -6,11 +6,7 @@ using App.Core.CustomerService.TransportModels;
 using App.Domain.Entities;
 using MapsterMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace App.Core.CustomerService.Commands
 {

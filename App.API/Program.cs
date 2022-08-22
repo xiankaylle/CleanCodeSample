@@ -1,8 +1,5 @@
 using App.Core;
 using App.Infrastructure;
-using App.Infrastructure.DatbaseContext;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
 var builder = WebApplication.CreateBuilder(args);
 
