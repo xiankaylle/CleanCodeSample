@@ -28,7 +28,7 @@ namespace App.Core
             //services.AddMediatR(Assembly.GetExecutingAssembly());
             //services.AddMediatR(typeof(App.Core.AssemblyReference).Assembly);
 
-            var applicationAssembly = typeof(AddCustomerCommand).Assembly;
+            var applicationAssembly = typeof(AssemblyReference).Assembly;
 
             services.AddMediatR(applicationAssembly);
 
