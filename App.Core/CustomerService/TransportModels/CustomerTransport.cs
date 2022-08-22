@@ -15,8 +15,8 @@ namespace App.Core.CustomerService.TransportModels
 
         public DateTime? Birthday { get; set; }
 
-        public string MobileNumber { get; set; }
-        public string Email { get; set; }
+        public string? MobileNumber { get; set; }
+        public string? Email { get; set; }
 
         public void Register(TypeAdapterConfig config)
         {

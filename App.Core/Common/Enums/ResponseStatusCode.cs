@@ -9,6 +9,7 @@ namespace App.Core.Common.Enums
         EntityNotFound,
         InvalidRequest,
         ServerError,
-        Forbidden
+        Forbidden,
+        Duplicate
     }
 }

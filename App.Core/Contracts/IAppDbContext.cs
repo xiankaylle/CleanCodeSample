@@ -3,9 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Core.Contracts
 {
-    public interface IAppDbContext
+    public interface IAppDbContext : IDbContext
     {
         DbSet<Customer> Customer { get; set; }
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

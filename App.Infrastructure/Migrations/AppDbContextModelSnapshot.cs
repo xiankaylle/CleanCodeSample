@@ -33,11 +33,11 @@ namespace App.Infrastructure.Migrations
                     b.Property<DateTime?>("Birthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()

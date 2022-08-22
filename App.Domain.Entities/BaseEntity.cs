@@ -11,7 +11,7 @@ namespace App.Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? Id { get; set; }
-        public DateTime Created { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         public string? CreatedBy { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿
 namespace App.Core.Contracts
 {
-    public interface IDateTime
+    public interface IDateTimeService
     {
         DateTime Now { get; }
     }
