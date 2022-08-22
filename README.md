@@ -1,6 +1,6 @@
 **Clean Code Architecture**
 
-This sample application uses MediatR + CQRS Pattern
+###### This sample application uses MediatR + CQRS Pattern
 
 Install the following:
 
