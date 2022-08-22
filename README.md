@@ -15,7 +15,10 @@ Install-Package MediatR.Extensions.Microsoft.DependencyInjection
 ```
 Install-Package Mapster -Version 7.3.0
 ```
--Migration using Package Manager Console
+-Migration using Package Manager Console 
+
+_Note: (Make sure in Package Manager Console the default project is App.Infrastructure)_
+
 ```
 cd App.Infrastructure
 ```
