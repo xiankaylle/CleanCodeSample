@@ -53,7 +53,7 @@ namespace App.Core.CustomerService.Commands
                 return new ValidationResult(ResponseStatusCode.InvalidRequest, $"Last Name must have at least 2 characters!");
             }         
 
-            return null;
+            return Task.FromResult<ValidationResult>(null).Result;
         }
     }
 

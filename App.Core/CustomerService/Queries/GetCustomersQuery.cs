@@ -21,7 +21,7 @@ namespace App.Core.CustomerService.Queries
     {
         public async Task<ValidationResult> Validate(GetCustomersQuery request)
         {
-            return null;
+            return Task.FromResult<ValidationResult>(null).Result;
         }
     }
 
