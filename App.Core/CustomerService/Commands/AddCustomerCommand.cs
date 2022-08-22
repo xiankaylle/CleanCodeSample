@@ -34,10 +34,12 @@ namespace App.Core.CustomerService.Commands
             if (request.CustomerTransport == null) {             
                 return new ValidationResult(ResponseStatusCode.InvalidRequest, $"{nameof(request.CustomerTransport)} can't be null");
             }
+
             if (string.IsNullOrEmpty(request.CustomerTransport.FirstName))
             {
                 return new ValidationResult(ResponseStatusCode.InvalidRequest, $"First Name is required!");
             }
+
             if (!request.CustomerTransport.FirstName.IsStringLengthValid()) { 
                 return new ValidationResult(ResponseStatusCode.InvalidRequest, $"First Name must have at least 2 characters!");
             }
@@ -47,12 +49,9 @@ namespace App.Core.CustomerService.Commands
                 return new ValidationResult(ResponseStatusCode.InvalidRequest, $"Last Name is required!");
             }
 
-
             if (!request.CustomerTransport.LastName.IsStringLengthValid()) { 
                 return new ValidationResult(ResponseStatusCode.InvalidRequest, $"Last Name must have at least 2 characters!");
-            }
-
-         
+            }         
 
             return null;
         }

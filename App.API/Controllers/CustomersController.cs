@@ -1,4 +1,5 @@
 ﻿using App.Core.CustomerService.Commands;
+using App.Core.CustomerService.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,21 @@ namespace App.API.Controllers
         {
             var response = await _mediator.Send(command);
            
+            return Ok(response);
+        }
+        [HttpGet(template: nameof(GetCustomers), Name = nameof(GetCustomers))]
+        public async Task<IActionResult> GetCustomers()
+        {
+            var response = await _mediator.Send(new GetCustomersQuery());
+
+            return Ok(response);
+        }
+
+        [HttpGet(template: nameof(GetCustomerById), Name = nameof(GetCustomerById))]
+        public async Task<IActionResult> GetCustomerById(int id)
+        {
+            var response = await _mediator.Send(new GetCustomerByIdQuery { CustomerId = id });
+
             return Ok(response);
         }
     }
