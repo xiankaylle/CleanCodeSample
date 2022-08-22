@@ -4,6 +4,10 @@
 
 _Install the following:_
 
+-Web API
+```
+Install-Package Microsoft.EntityFrameworkCore.Design
+```
 -Web API, Core
 ```
 Install-Package MediatR
@@ -11,6 +15,9 @@ Install-Package MediatR
 -Core
 ```
 Install-Package MediatR.Extensions.Microsoft.DependencyInjection
+```
+```
+Install-Package Scrutor
 ```
 ```
 Install-Package Mapster -Version 7.3.0
