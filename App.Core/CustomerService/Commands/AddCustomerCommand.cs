@@ -78,7 +78,8 @@ namespace App.Core.CustomerService.Commands
 
             return new ServiceResponse<bool>
             {
-                Data = result > 0 ? true : false
+                Data = result > 0 ? true : false,
+                ResponseStatusCode = ResponseStatusCode.Ok
             };
         }
     }

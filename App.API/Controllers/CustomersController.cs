@@ -39,5 +39,12 @@ namespace App.API.Controllers
 
             return Ok(response);
         }
+        [HttpPatch(template: nameof(UpdateCustomerInfo), Name = nameof(UpdateCustomerInfo))]
+        public async Task<IActionResult> UpdateCustomerInfo([FromBody] UpdateCustomerCommand updateCustomerCommand)
+        {
+            var response = await _mediator.Send(updateCustomerCommand);
+
+            return Ok(response);
+        }
     }
 }
