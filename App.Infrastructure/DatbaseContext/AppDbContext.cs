@@ -43,7 +43,7 @@ namespace App.Infrastructure.DatbaseContext
             var entries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity &&
              (e.State == EntityState.Added || e.State == EntityState.Modified)).Select(x => x.Entity as BaseEntity);
 
-            await UpdateEntries(entries, DateTime.UtcNow);
+            await UpdateEntries(entries, _dateTime.Now);
 
             return await base.SaveChangesAsync(cancellationToken);
         }
