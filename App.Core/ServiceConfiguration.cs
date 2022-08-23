@@ -26,6 +26,7 @@ namespace App.Core
             services.AddSingleton<IMapper>(mapperConfig);
 
             //services.AddMediatR(Assembly.GetExecutingAssembly());
+            //services.AddMediatR(typeof(App.Core.AssemblyReference).Assembly);
 
             var applicationAssembly = typeof(AssemblyReference).Assembly;
 
