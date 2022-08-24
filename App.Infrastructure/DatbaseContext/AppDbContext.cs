@@ -17,6 +17,17 @@ namespace App.Infrastructure.DatbaseContext
             _dateTime = dateTime;
         }
         public DbSet<Customer> Customer { get; set; }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var entries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity &&
+             (e.State == EntityState.Added || e.State == EntityState.Modified)).Select(x => x.Entity as BaseEntity);
+
+            await UpdateEntries(entries, _dateTime.Now);
+
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+       
         protected virtual async Task UpdateEntries(IEnumerable<BaseEntity> entries, DateTime savedTime)
         {
             /*
@@ -36,16 +47,6 @@ namespace App.Infrastructure.DatbaseContext
                 entry.LastModifiedBy = username;
             }
 
-        }
-
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            var entries = ChangeTracker.Entries().Where(e => e.Entity is BaseEntity &&
-             (e.State == EntityState.Added || e.State == EntityState.Modified)).Select(x => x.Entity as BaseEntity);
-
-            await UpdateEntries(entries, _dateTime.Now);
-
-            return await base.SaveChangesAsync(cancellationToken);
         }
 
 

@@ -11,10 +11,10 @@ namespace App.API.Controllers
     [ApiController]
     public class CustomersController : ApiBaseController
     {
-        //private readonly IMediator Mediator;
+        //private readonly IMediator _mediator;
         //public CustomersController(IMediator mediator)
         //{
-        //    Mediator = mediator;
+        //    _mediator = mediator;
         //}
 
         [HttpPost(template: nameof(AddCustomer), Name = nameof(AddCustomer))]
@@ -28,6 +28,14 @@ namespace App.API.Controllers
         public async Task<IActionResult> GetCustomers()
         {
             var response = await Mediator.Send(new GetCustomersQuery());
+
+            return Ok(response);
+        }
+
+        [HttpGet(template: nameof(GetCustomersPaging), Name = nameof(GetCustomersPaging))]
+        public async Task<IActionResult> GetCustomersPaging([FromQuery] GetCustomersPagingQuery getCustomersPagingQuery)
+        {
+            var response = await Mediator.Send(getCustomersPagingQuery);
 
             return Ok(response);
         }
