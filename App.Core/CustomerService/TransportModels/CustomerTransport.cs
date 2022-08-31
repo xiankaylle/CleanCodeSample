@@ -1,4 +1,5 @@
 ﻿
+using App.Core.Common.Models;
 using App.Domain.Entities;
 using Mapster;
 /*
@@ -9,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace App.Core.CustomerService.TransportModels
 {
-    public class CustomerTransport : IRegister
+    public class CustomerTransport : BaseEntityTransport, IRegister
     {
         public int? Id { get; set; }
         [ValidateNever]
