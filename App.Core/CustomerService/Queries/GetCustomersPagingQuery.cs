@@ -37,20 +37,20 @@ namespace App.Core.CustomerService.Queries
         }
         public async Task<ServiceResponse<IEnumerable<CustomerTransport>>> Handle(GetCustomersPagingQuery request, CancellationToken cancellationToken)
         {
-            var query =  _context.Customer;           
+            var query = _context.Customer;          
 
-            var items = await query.Skip(request.SkipItems).Take(request.MaxItemsPerPage).ToListAsync();
+            var totalItems = await query.CountAsync();
 
-            var maxItems = await query.CountAsync();
+            var items = await query.OrderBy(c => c.Id.Value).Skip(request.SkipItems).Take(request.ItemsPerPage).ToListAsync();
 
             var result = _mapper.Map<List<CustomerTransport>>(items);
 
             return new ServicePagingResponse<CustomerTransport>()
             {
                  Data = result,
-                 MaxItems = maxItems,
+                 TotalItems = totalItems,
                  CurrentPage = request.CurrentPage,
-                 MaxItemsPerPage = request.MaxItemsPerPage,
+                 ItemsPerPage = request.ItemsPerPage,
             };
 
         }

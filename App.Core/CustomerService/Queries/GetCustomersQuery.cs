@@ -38,11 +38,12 @@ namespace App.Core.CustomerService.Queries
         public async Task<ServiceResponse<List<CustomerTransport>>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
             var data = await _context.Customer.ToListAsync();
-
+            
             var result = _mapper.Map<List<CustomerTransport>>(data);
 
             return new ServiceResponse<List<CustomerTransport>> {
-                Data = result
+                Data = result,
+
             };
 
         }

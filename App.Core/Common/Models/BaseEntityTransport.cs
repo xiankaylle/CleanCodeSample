@@ -9,7 +9,8 @@ namespace App.Core.Common.Models
     public class BaseEntityTransport
     {
         public int? Id { get; set; }
-        public DateTime CreatedOn { get; set; }
+
+        public DateTime? CreatedOn { get; set; }
 
         public string? CreatedBy { get; set; }
 

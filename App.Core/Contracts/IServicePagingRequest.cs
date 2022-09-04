@@ -9,6 +9,6 @@ namespace App.Core.Contracts
     public interface IServicePagingRequest
     {
         int CurrentPage { get; set; }
-        int MaxItemsPerPage { get; set; }
+        int ItemsPerPage { get; set; }
     }
 }

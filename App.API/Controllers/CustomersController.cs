@@ -18,7 +18,7 @@ namespace App.API.Controllers
         //}
 
         [HttpPost(template: nameof(AddCustomer), Name = nameof(AddCustomer))]
-        public async Task<IActionResult> AddCustomer([FromForm] AddCustomerCommand command)
+        public async Task<IActionResult> AddCustomer([FromBody] AddCustomerCommand command)
         {
             var response = await Mediator.Send(command);
            

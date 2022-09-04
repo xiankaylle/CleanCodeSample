@@ -7,7 +7,7 @@ namespace App.Core.Common.RequestsWrapper
     {
         public int CurrentPage { get; set; }
         [IgnoreDataMember]
-        public int SkipItems { get => CurrentPage <= 1 ? 0 : (CurrentPage - 1) * MaxItemsPerPage; }
-        public int MaxItemsPerPage { get; set; } = 25;
+        public int SkipItems { get => CurrentPage <= 1 ? 0 : (CurrentPage - 1) * ItemsPerPage; }
+        public int ItemsPerPage { get; set; }
     }
 }

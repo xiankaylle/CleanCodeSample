@@ -12,26 +12,26 @@ namespace App.Core.Common.ResponseWrapper
         /// This is the max item per page
         /// </summary>
          /// <value></value>
-        public int MaxItemsPerPage { get; set; }
+        public int ItemsPerPage { get; set; }
         /// <summary>
         /// This is the total count of items that can be retrieved from the storage
         /// </summary>
         /// <value></value>
-        public int MaxItems { get; set; }
+        public int TotalItems { get; set; }
         /// <summary>
         /// This is the total pages that can be created by the same query
         /// </summary>
         /// <value></value>
-        public int MaxPages
+        public int TotalPages
         {
             get
             {
-                if (MaxItems <= 0)
+                if (TotalItems <= 0)
                 {
                     return 1;
                 }
 
-                return ((MaxItems - 1) / MaxItemsPerPage) + 1;
+                return ((TotalItems - 1) / ItemsPerPage) + 1;
             }
         }
         /// <summary>
