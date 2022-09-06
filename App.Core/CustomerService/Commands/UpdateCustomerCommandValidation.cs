@@ -20,11 +20,7 @@ namespace App.Core.CustomerService.Commands
         }
         public async Task<ValidationResult> Validate(UpdateCustomerCommand request)
         {
-            if (await _context.Customer.AnyAsync(x => x.Email == request.CustomerTransport.Email))
-            {
-                return new ValidationResult(ResponseStatusCode.EntityNotFound, $"Email already exist!");
-            }
-
+        
             if (!await _context.Customer.AnyAsync(x => x.Id == request.CustomerTransport.Id))
             {
                 return new ValidationResult(ResponseStatusCode.EntityNotFound, $"Customer does not exist!");
